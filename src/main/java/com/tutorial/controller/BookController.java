@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/books")
@@ -18,7 +17,6 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<Book> addBook(@RequestBody Book book) {
-        book.setId(UUID.randomUUID().toString());
         bookService.save(book);
         return ResponseEntity.ok().body(book);
     }

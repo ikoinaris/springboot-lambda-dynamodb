@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -14,6 +15,7 @@ public class BookService {
     private final BookRepository bookRepository;
 
     public void save(Book book) {
+        book.setId(UUID.randomUUID().toString());
         bookRepository.save(book);
     }
 
